@@ -75,11 +75,17 @@ const NoteList = () => {
               className="note-list"
               {...provided.droppableProps}
               ref={provided.innerRef}
+              style={{
+                height: "70px",
+                display: "flex",
+                flexWrap: "wrap",
+                padding: "10px",
+              }}
             >
               {notes.length === 0 && (
                 <div className="no-note">
                   No Note Found <br />{" "}
-                  <span>Please create note using above form fill</span>
+                  <span>Create new note please fill the form</span>
                 </div>
               )}
 
@@ -90,11 +96,26 @@ const NoteList = () => {
                   index={index}
                   isDragDisabled={note.completed}
                 >
-                  {(provided) => (
+                  {(provided, snapshot) => (
                     <div
                       ref={provided.innerRef}
                       {...provided.draggableProps}
                       {...provided.dragHandleProps}
+                      className={` note-container ${
+                        note?.completed ? "completed" : ""
+                      }`}
+                      style={{
+                        ...provided.draggableProps.style,
+                        minHeight: "80px",
+                        margin: "5px",
+                        padding: "8px 10px",
+                        backgroundColor: note.color || "#ffffff",
+                        border: "1px solid #ccc",
+                        borderRadius: "5px",
+                        boxShadow: snapshot.isDragging
+                          ? "0 0 5px rgba(0,0,0,0.3)"
+                          : "none",
+                      }}
                     >
                       <Note
                         note={note}
