@@ -50,6 +50,7 @@ body {
   .note-list {
     max-height: calc(100vh - 550px) !important;
     min-height: calc(100vh - 550px) !important;
+    width: 360px !important;
   }
 }
 
