@@ -7,7 +7,7 @@
 }
 
 body {
-  font-family: Arial, sans-serif;
+  font-family: "Trebuchet MS", sans-serif;
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -24,7 +24,6 @@ body {
   background: #ffffffdb;
   border-radius: 15px;
   height: calc(100vh - 142px);
-  /* background: #f1f5f8; */
   background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
   background-size: 25px 25px;
 }
@@ -59,49 +58,48 @@ header h1 {
 }
 
 .note-list {
-  /* display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center; */
   margin-top: 20px;
   max-height: calc(100vh - 450px);
   min-height: calc(100vh - 450px);
   overflow: scroll;
   display: flex;
-  justify-content: flex-start;
-  flex-direction: column;
-  width: 100%;
+  justify-content: space-between;
+  align-items: flex-start;
+  align-content: flex-start;
+  flex-wrap: wrap;
+  width: 450px;
   height: auto;
   background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
   background: #f1f5f8;
   border-radius: 20px;
   box-shadow: 4px 3px 7px 2px #00000040;
-  align-items: center;
+  padding: 0px 10px;
+  flex-direction: row;
 }
 
 .note {
-  background: white;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
-  /* box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); */
-  margin: 10px 0 0;
-  padding: 10px;
-  width: 300px;
-  transition: background-color 0.3s ease;
-  position: relative;
+  width: 100%;
+  height: 100%;
 }
 
-.note:hover .close-note {
+.note-container:hover .close-note {
   display: block !important;
 }
 
-.note.completed {
+.note-container {
+  width: 200px;
+  position: relative;
+}
+
+.note-container.completed {
   background-color: lightgrey !important;
 }
 
-.note:hover {
+.note-container:hover.completed {
+  transform: inherit;
+}
+
+.note-container:hover {
   box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
     0 1px 3px 1px rgba(60, 64, 67, 0.149);
   transform: scale(1.05, 1.05);
@@ -154,7 +152,7 @@ header h1 {
 }
 
 .note-content {
-  margin-left: 28px;
+  /* margin-left: 28px; */
   font-size: 14px;
 }
 
@@ -183,8 +181,8 @@ header h1 {
 }
 
 .input-color {
-  /* margin: auto; */
   inline-size: 30px;
+  opacity: 0;
 }
 
 .submit-button {
@@ -224,9 +222,14 @@ header h1 {
 }
 
 .no-note {
-  margin: 200px auto;
   text-align: center;
   color: #00000080;
+  margin: auto;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: 14px;
 }
 
 .no-note span {
@@ -243,7 +246,8 @@ header h1 {
   inline-size: 30px;
   position: absolute;
   bottom: 8px;
-  right: 10px;
+  right: 8px;
+  opacity: 0;
 }
 
 .task-checkbox {
@@ -294,21 +298,48 @@ header h1 {
 
 .close-note {
   display: none;
-  inline-size: 30px;
   position: absolute;
   top: -6px;
   right: -4px;
   color: #fff;
-  font-size: 13px;
+  font-size: 10px;
   cursor: pointer;
   border: 1px solid #000;
   border-radius: 10px;
-  width: 18px;
-  height: 18px;
+  width: 13px;
+  height: 13px;
   text-align: center;
   background-color: #000;
 }
 
 .close-note:hover {
   display: block;
+}
+
+.replacement-image > input {
+  display: none;
+}
+
+.replacement-image {
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  left: 0;
+}
+
+.input-container {
+  position: relative;
+  display: inline-block;
+}
+
+.input-container-edit {
+  /* position: relative; */
+}
+
+.replacement-image-edit {
+  height: 28px;
+  width: 28px;
+  position: absolute;
+  bottom: 8px;
+  right: 8px;
 }
