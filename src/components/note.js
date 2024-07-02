@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useRef } from "react";
 import Task from "./task";
+import paint from "./paint.png";
 
 const Note = ({ note, onTaskToggle, onColorEdit, onCloseNote }) => {
+  const fileInputRef = useRef(null);
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (e) => {
+    onColorEdit(note.id, e.target.value);
+  };
   return (
-    <div
-      style={{ backgroundColor: note.color }}
-      className={` note ${note?.completed ? "completed" : ""}`}
-    >
+    <div className={` note ${note?.completed ? "completed" : ""}`}>
       <div
         className={`task-container task ${note?.completed ? "completed" : ""}`}
       >
@@ -22,12 +28,22 @@ const Note = ({ note, onTaskToggle, onColorEdit, onCloseNote }) => {
         {Array.isArray(note.content) &&
           note.content.map((task, index) => <Task key={index} task={task} />)}
       </div>
-      <input
-        type="color"
-        value={note?.color}
-        onChange={(e) => onColorEdit(note.id, e.target.value)}
-        className="input-color-edit"
-      />
+      <div class="input-container-edit">
+        <input
+          type="color"
+          value={note?.color}
+          onChange={handleFileChange}
+          className="input-color-edit"
+          ref={fileInputRef}
+          disabled={note?.completed}
+        />
+        <img
+          src={paint}
+          alt="Image"
+          onClick={handleClick}
+          class="replacement-image-edit"
+        />
+      </div>
       <div className="close-note" onClick={() => onCloseNote(note.id)}>
         X
       </div>
