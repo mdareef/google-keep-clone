@@ -84,7 +84,7 @@ header h1 {
   background: white;
   border: 1px solid #ddd;
   border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  /* box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); */
   /* box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2); */
   margin: 10px 0 0;
   padding: 10px;
@@ -93,12 +93,17 @@ header h1 {
   position: relative;
 }
 
+.note:hover .close-note {
+  display: block !important;
+}
+
 .note.completed {
   background-color: lightgrey !important;
 }
 
 .note:hover {
-  box-shadow: 0px 3px 7px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 1px 2px 0 rgba(60, 64, 67, 0.302),
+    0 1px 3px 1px rgba(60, 64, 67, 0.149);
   transform: scale(1.05, 1.05);
   transition: transform 0.3s ease;
 }
@@ -288,11 +293,22 @@ header h1 {
 }
 
 .close-note {
+  display: none;
   inline-size: 30px;
   position: absolute;
-  top: 3px;
-  right: -16px;
-  color: #0008;
+  top: -6px;
+  right: -4px;
+  color: #fff;
   font-size: 13px;
   cursor: pointer;
+  border: 1px solid #000;
+  border-radius: 10px;
+  width: 18px;
+  height: 18px;
+  text-align: center;
+  background-color: #000;
+}
+
+.close-note:hover {
+  display: block;
 }
