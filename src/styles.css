@@ -115,11 +115,11 @@ header h1 {
 .task {
   display: flex;
   margin: 5px 0;
-  align-items: flex-start;
+  align-items: center;
 }
 
 .task-checkbox {
-  margin-right: 15px;
+  margin-right: 8px;
 }
 
 .task-title {
@@ -158,26 +158,28 @@ header h1 {
 
 .input-title {
   background: #fff;
-  color: #a3a3a3;
+  color: #000;
   font: inherit;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
   padding: 14px 18px;
   height: 50px;
+  border-radius: 8px;
 }
 
 .input-textarea {
   background: #fff;
-  color: #a3a3a3;
+  color: #000;
   font: inherit;
   box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
   border: 0;
   outline: 0;
-  padding: 14px 18px;
+  padding: 4px 18px;
   height: 50px;
   overflow: scroll;
   margin-top: 4px;
+  border-radius: 8px;
 }
 
 .input-color {
@@ -218,7 +220,7 @@ header h1 {
 .input-title-text {
   font-size: 14px;
   margin-bottom: 8px;
-  color: #00000080;
+  color: #000;
 }
 
 .no-note {
@@ -260,22 +262,22 @@ header h1 {
   content: "";
   position: relative;
   display: inline-block;
-  width: 18px;
-  height: 18px;
+  width: 14px;
+  height: 14px;
   background-color: #fff;
   cursor: pointer;
   transition: background-color 0.3s ease;
   border: 1px solid #000;
-  border-radius: 3px;
+  border-radius: 2px;
 }
 
 .task-checkbox::after {
   content: "";
   position: absolute;
   top: 0px;
-  left: 6px;
-  width: 6px;
-  height: 14px;
+  left: 5px;
+  width: 4px;
+  height: 12px;
   background-color: transparent;
   border: solid #000;
   border-width: 0 2px 2px 0;
