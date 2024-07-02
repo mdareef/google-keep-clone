@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
+import paint from "./paint.png";
 
 const NoteForm = ({ onAddNote }) => {
+  const fileInputRef = useRef(null);
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
-  const [color, setColor] = useState("#ffffff");
+  const [color, setColor] = useState("#f1f5f8");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (title && content) {
+    if (title) {
       const formattedContent = content
         .split("\n")
         .map((line) => ({ title: line }));
@@ -15,12 +17,25 @@ const NoteForm = ({ onAddNote }) => {
       onAddNote(title, formattedContent, color, completed);
       setTitle("");
       setContent("");
-      setColor("#ffffff");
+      setColor("#f1f5f8");
     }
   };
 
+  const handleClick = () => {
+    fileInputRef.current.click();
+  };
+
+  const handleFileChange = (e) => {
+    const value = e.target.value;
+    setColor(value);
+  };
+
   return (
-    <form onSubmit={handleSubmit} className="note-form">
+    <form
+      onSubmit={handleSubmit}
+      style={{ backgroundColor: color || "#f1f5f8" }}
+      className="note-form"
+    >
       <div className="note-form-inputs">
         <div>
           <div className="input-title-text">Title</div>
@@ -30,6 +45,7 @@ const NoteForm = ({ onAddNote }) => {
             value={title}
             onChange={(e) => setTitle(e.target.value)}
             className="input-title"
+            required
           />
         </div>
         <div>
@@ -43,12 +59,21 @@ const NoteForm = ({ onAddNote }) => {
         </div>
       </div>
       <div className="note-form-bottom">
-        <input
-          type="color"
-          value={color}
-          onChange={(e) => setColor(e.target.value)}
-          className="input-color"
-        />
+        <div class="input-container">
+          <input
+            type="color"
+            value={color}
+            onChange={handleFileChange}
+            className="input-color"
+            ref={fileInputRef}
+          />
+          <img
+            src={paint}
+            alt="Image"
+            onClick={handleClick}
+            class="replacement-image"
+          />
+        </div>
         <button className="submit-button" type="submit">
           + Add Note
         </button>
