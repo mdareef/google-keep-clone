@@ -33,6 +33,7 @@ body {
     width: calc(100vw - 350px);
   }
 }
+
 @media screen and (max-width: 768px) {
   .app {
     width: 100%;
@@ -50,7 +51,23 @@ body {
   .note-list {
     max-height: calc(100vh - 550px) !important;
     min-height: calc(100vh - 550px) !important;
+    width: 460px !important;
+  }
+}
+
+@media screen and (max-width: 487px) {
+  .note-list {
+    max-height: calc(100vh - 550px) !important;
+    min-height: calc(100vh - 550px) !important;
     width: 360px !important;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .note-list {
+    max-height: calc(100vh - 550px) !important;
+    min-height: calc(100vh - 550px) !important;
+    width: 310px !important;
   }
 }
 
