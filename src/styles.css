@@ -26,11 +26,13 @@ body {
   height: calc(100vh - 142px);
   background-image: radial-gradient(#bfc0c1 7.2%, transparent 0);
   background-size: 25px 25px;
+  overflow: auto;
+  width: calc(100vw - 50%);
 }
 
-@media screen and (min-width: 768px) {
+@media screen and (min-width: 768px) and (max-width: 1168px) {
   .app {
-    width: calc(100vw - 350px);
+    width: calc(100vw - 30%);
   }
 }
 
