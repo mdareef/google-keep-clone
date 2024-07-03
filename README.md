@@ -1,8 +1,9 @@
-# google-keep-note
+# google-keep-clone
 
 Available Scripts
 
 # Live Demo - http://54.221.123.34/
+
 In the project directory, you can run:
 
 # npm start
