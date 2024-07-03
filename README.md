@@ -2,7 +2,7 @@
 
 Available Scripts
 
-# Live Demo - http://54.221.123.34/
+# Demo - http://54.221.123.34/
 
 In the project directory, you can run:
 
