@@ -6,6 +6,9 @@ Available Scripts
 
 In the project directory, you can run:
 
+# npm install
+This command installs all packages and create node modules file 
+
 # npm start
 Runs the app in the development mode.
 Open http://localhost:3000 to view it in your browser.
